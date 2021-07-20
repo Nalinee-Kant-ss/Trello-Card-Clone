@@ -7,20 +7,25 @@ function Title(){
     const root=TodoInputStyle();
     return(
         <>
+        
         {open ?
         <div>
-            <InputBase value="Todo" className={root.InputBoxStyle}  onBlur={()=>setOpen(false)} ></InputBase>
+            <InputBase value="Todo" className={root.InputBoxStyle}  onBlur={()=>setOpen(false)} autoFocus ></InputBase>
             </div>
             :
             <div>
             <Typography 
+           
             className={root.moreHorizStyle}
             onClick={()=>setOpen(true) }
-            ><p>Todo</p>
+            >Todo
             <MoreHorizIcon />
             </Typography>
             </div>
+            
+            
             }
+            
         </>
     )
 }
