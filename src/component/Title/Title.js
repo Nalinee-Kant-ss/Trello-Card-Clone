@@ -5,12 +5,27 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 function Title(){
     const [open,setOpen]=useState(false);
     const root=TodoInputStyle();
+    const [statetitle,setstateTitle]=useState("Todo");
+    const handleTitle=(evt)=>{
+        setstateTitle(evt.target.value)
+
+    }
+
     return(
         <>
         
         {open ?
         <div>
-            <InputBase value="Todo" className={root.InputBoxStyle}  onBlur={()=>setOpen(false)} autoFocus ></InputBase>
+            <InputBase        
+            value={statetitle}
+            className={root.InputBoxStyle}
+             onBlur={()=>setOpen(false)}
+            autoFocus 
+            onChange={(evt)=>handleTitle(evt)}
+        
+            >
+
+            </InputBase>
             </div>
             :
             <div>
@@ -18,7 +33,7 @@ function Title(){
            
             className={root.moreHorizStyle}
             onClick={()=>setOpen(true) }
-            >Todo
+            >{statetitle}
             <MoreHorizIcon />
             </Typography>
             </div>

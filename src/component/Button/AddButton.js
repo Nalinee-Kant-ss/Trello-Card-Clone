@@ -12,13 +12,13 @@ function AddButton(){
      <div>
         <div style={{margin:"5px"}}>
             <Paper>
-                <InputBase placeholder="enter the Work" multiline style={{paddingBottom:"70px"}} ></InputBase>
+                <InputBase placeholder="enter the Work" multiline style={{paddingBottom:"70px",margin:"5px"}} ></InputBase>
             </Paper>
         </div>
     
         <div>
             <Paper style={{background:"#EBECF0"}}>
-                <Button style={{background:"green"}} onClick={()=>setOpen(!open)} >+ Add Todo</Button>
+                <Button className={btn.addBtn} onClick={()=>setOpen(!open)} >+ Add Todo</Button>
                     <IconButton>
                         <ClearIcon onClick={()=>setOpen(!open)}/>
                     </IconButton>

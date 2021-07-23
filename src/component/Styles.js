@@ -1,6 +1,10 @@
-import { makeStyles } from "@material-ui/core/styles";
-
+import { Fade } from "@material-ui/core";
+// import { fade } from "@material-ui/core/fade";
+import { makeStyles  } from "@material-ui/core/styles";
 export const TodoHeadingStyle=makeStyles({
+    headingBaseLine:{
+        background:"green"
+    },
 
     heading:{
         width:"300px",
@@ -9,23 +13,33 @@ export const TodoHeadingStyle=makeStyles({
 
     },
     mainHeading:{
-        marginLeft:"50px",
-        fontWeight:"600"
+        marginLeft:"20px",
+        fontWeight:"700",
+        '&:hover':{
+            background:"#EBECF0",
+            width:"18.7%"
+        },
+        marginBottom:"2px"
+        
 
     }
     
 })
 export const TodoInputStyle=makeStyles({
     InputBoxStyle:{
+       
         margin:"10px 10px 10px 10px",
         "&:hover":{
             background:"#ddd",
             width:"95%"
         },
+        
 
     
     },
     moreHorizStyle:{
+        // fontWeight:"500",
+        marginLeft:"5px",
         display:"flex",
         justifyContent:"space-Between",
         alignItems:"center",
@@ -52,6 +66,13 @@ export const btnStyle=makeStyles({
         background:"#EBECF0",
         "&:hover":{
             background:"#ddd"
+        }
+    },
+    addBtn:{
+        background:"#5AAC44",
+        '&:hover':{
+            background:"#6fbf73"
+          
         }
     }
 
