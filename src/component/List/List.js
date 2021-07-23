@@ -8,6 +8,7 @@ import AddButton from '../Button/AddButton';
 import { useEffect, useState } from 'react';
 import { InputBase } from '@material-ui/core';
 import axios from 'axios';
+import AddCard from '../AddCard/AddCard';
 function List(){
     const style=TodoHeadingStyle();
     const [open,setOpen]=useState(false);
@@ -29,11 +30,20 @@ function List(){
        console.log(err)
    })
    },[])
+
+//    function addList(string)
+//    {
+//        setTodo.push(string);
+//    }
+   const addList=(string)=>{
+       setTodo.push(string);
+   }
+   
     
     return(
         <>
         <br/>
-        <div>
+        <div style={{overflow:"auto"}}>
 
         {open ? 
         <InputBase 
@@ -60,16 +70,14 @@ function List(){
         
              <CssBaseline/>
              <Title />  
-                   {/* {list.cards.map((card)=>(
-                       
-                     <CardTrello key={card.id} card={card} />
-                  ))}        */}
                   {todo.map((todo)=>(
                       
                       <CardTrello todo={todo} key={todo.id}/>
                     
                   ))}
-            <AddButton />
+                  <AddButton setTodo={(data)=>setTodo(data)}todo={todo}/>
+                  {/* <AddButton setTodo={(data)=>setTodo(data)} todo={todo} /> */}
+            {/* <AddButton addList={addList}/> */}
            
         </Paper>
        
