@@ -1,47 +1,43 @@
-import { InputBase, Typography } from "@material-ui/core";
 import { useState } from "react";
-import  { TodoInputStyle } from '../Styles'
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-function Title(){
-    const [open,setOpen]=useState(false);
-    const root=TodoInputStyle();
-    const [statetitle,setstateTitle]=useState("Todo");
-    const handleTitle=(evt)=>{
-        setstateTitle(evt.target.value)
+import { TodoInputStyle } from "../Styles";
+import { InputBase, Typography } from "@material-ui/core";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
-    }
+//...................... End import.............................................//
 
-    return(
-        <>
-        
-        {open ?
+function Title() {
+  const [open, setOpen] = useState(false);
+  const root = TodoInputStyle();
+  const [statetitle, setstateTitle] = useState("Todo");
+
+  const handleTitle = (evt) => {
+    setstateTitle(evt.target.value);
+  };
+
+  return (
+    <>
+      {open ? (
         <div>
-            <InputBase        
+          <InputBase
             value={statetitle}
             className={root.InputBoxStyle}
-             onBlur={()=>setOpen(false)}
-            autoFocus 
-            onChange={(evt)=>handleTitle(evt)}
-        
-            >
-
-            </InputBase>
-            </div>
-            :
-            <div>
-            <Typography 
-           
+            onBlur={() => setOpen(false)}
+            autoFocus
+            onChange={(evt) => handleTitle(evt)}
+          ></InputBase>
+        </div>
+      ) : (
+        <div>
+          <Typography
             className={root.moreHorizStyle}
-            onClick={()=>setOpen(true) }
-            >{statetitle}
+            onClick={() => setOpen(true)}
+          >
+            {statetitle}
             <MoreHorizIcon />
-            </Typography>
-            </div>
-            
-            
-            }
-            
-        </>
-    )
+          </Typography>
+        </div>
+      )}
+    </>
+  );
 }
 export default Title;
